@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div id="container-mainPage">
+      <!-- Back to homepage button -->
+      <svg
+        id="backBtn"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-chevron-left"
+      >
+        <path d="m15 18-6-6 6-6" />
+      </svg>
+
+      <div id="countryDetail">
+        <p id="city" style="position: relative; left: 10px">Hong Kong</p>
+        <p id="temp"></p>
+        <p>
+          <!-- Sunny icon -->
+          <svg
+            id="sunny"
+            style="position: relative; left: 10px"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-sun"
+          >
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2" />
+            <path d="M12 20v2" />
+            <path d="m4.93 4.93 1.41 1.41" />
+            <path d="m17.66 17.66 1.41 1.41" />
+            <path d="M2 12h2" />
+            <path d="M20 12h2" />
+            <path d="m6.34 17.66-1.41 1.41" />
+            <path d="m19.07 4.93-1.41 1.41" />
+          </svg>
+          <!-- Cloudy icon -->
+          <svg
+            id="cloudy"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-cloudy"
+          >
+            <path d="M17.5 21H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
+            <path d="M22 10a3 3 0 0 0-3-3h-2.207a5.502 5.502 0 0 0-10.702.5" />
+          </svg>
+          <!-- Rainy icon -->
+          <svg
+            id="rainy"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-cloud-rain-wind"
+          >
+            <path
+              d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"
+            />
+            <path d="m9.2 22 3-7" />
+            <path d="m9 13-3 7" />
+            <path d="m17 13-3 7" />
+          </svg>
+        </p>
+        <p id="weatherText" style="position: relative; right: 10px"></p>
+      </div>
+      <div id="countDown">
+        <p id="timer">25:00</p>
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+          "
+        >
+          <!-- <button id="startBtn">Start</button> -->
+          <!-- <button id="stopBtn">Stop</button> -->
+          <!-- <button id="resetBtn">Reset</button> -->
+          <button id="resetBtn" class="btn btn-xs btn-outline">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-rotate-ccw"
+            >
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+              <path d="M3 3v5h5" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="quote">
+        <!-- <p>"Happiness... consists in giving, and in serving others."</p>
+        <p>Henry Drummond</p> -->
+      </div>
+      <div id="cat">
+        <img
+          style="transform: scaleX(-1)"
+          id="stopBtn"
+          class="movingCat"
+          src="./picture/movingCat.gif"
+          alt=""
+        />
+        <img id="startBtn" class="stopCat" src="./picture/stopCat.png" alt="" />
+      </div>
+      <label id="volume" class="swap">
+        <!-- this hidden checkbox controls the state -->
+        <input type="checkbox" />
+
+        <!-- volume on icon -->
+        <svg
+          class="swap-on fill-current"
+          xmlns="http://www.w3.org/2000/svg"
+          width="48"
+          height="48"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z"
+          />
+        </svg>
+
+        <!-- volume off icon -->
+        <svg
+          class="swap-off fill-current"
+          xmlns="http://www.w3.org/2000/svg"
+          width="48"
+          height="48"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M3,9H7L12,4V20L7,15H3V9M16.59,12L14,9.41L15.41,8L18,10.59L20.59,8L22,9.41L19.41,12L22,14.59L20.59,16L18,13.41L15.41,16L14,14.59L16.59,12Z"
+          />
+        </svg>
+      </label>
+    </div>
+
+    <div>
+      <img class="imageAnimation" src="./picture/bg1(2).jpg" alt="BG" />
+    </div>
+  </body>
+  <script src="./scirpt.js"></script>
+</html>

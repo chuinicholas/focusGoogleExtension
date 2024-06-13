@@ -1,0 +1,247 @@
+* {
+  box-sizing: border-box;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+body {
+  height: 500.25px;
+  width: 281.25px;
+  position: relative;
+}
+
+#container-mainPage {
+  position: absolute;
+  height: 500.25px;
+  width: 281.25px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+#countryDetail {
+  margin-top: 10px;
+  grid-column-start: 2;
+  grid-column-end: 10;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  color: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 0 0 1px hsla(0, 0%, 100%, 0.2) inset,
+    0 1px 1px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 1px rgba(25, 25, 25, 0.5);
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  /* width: 100%;
+  height: 150px; */
+  border-radius: 30px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    filter: blur(6px);
+  }
+}
+
+#countryDetail > p {
+  color: aliceblue;
+  font-size: 0.8rem;
+}
+
+#countDown {
+  grid-column-start: 3;
+  grid-column-end: 9;
+  grid-row-start: 3;
+  grid-row-end: 6;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+#quote {
+  grid-column-start: 2;
+  grid-column-end: 10;
+  grid-row-start: 9;
+  grid-row-end: 11;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #484848;
+  animation: fadeIn 6s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+#volume {
+  grid-column-start: 9;
+  grid-column-end: 11;
+  grid-row-start: 23;
+  grid-row-end: 25;
+}
+
+#volume > svg {
+  height: 30px;
+  width: 30px;
+}
+
+#cat {
+  grid-column-start: 4;
+  grid-column-end: 9;
+  grid-row-start: 16;
+  grid-row-end: 18;
+}
+
+#timer {
+  font-size: 3.5rem;
+  color: #484848;
+  font-weight: 900;
+  opacity: 0.6;
+}
+
+#resetBtn > svg {
+  height: 15px;
+  width: 15px;
+}
+
+.imageAnimation {
+  border-radius: 10px;
+  position: absolute;
+  z-index: -1;
+  height: 500.25px;
+  width: 281.25px;
+  object-fit: cover;
+  animation: background 20s linear 0s infinite normal;
+  animation-play-state: paused;
+}
+
+@keyframes background {
+  0% {
+    object-position: 0;
+  }
+
+  /* 25%  {left: 0%;}
+  50%  {left: 0%;} */
+  100% {
+    object-position: 100%;
+  }
+}
+
+/* Herman */
+
+#LocationInput {
+  display: flex;
+  position: relative;
+  bottom: 30px;
+  text-align: center;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.QuestionContainer {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 80%;
+  height: 100px;
+  flex-flow: row;
+  background-color: rgba(255, 255, 255, 0.4);
+  font-weight: bold;
+  outline: none;
+  overflow: hidden;
+  box-shadow: 0px 0px 5px 2px;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  text-align: center;
+  color: #43bd8e;
+}
+
+.buttonStorage > button:hover {
+  color: #e1fea4;
+  opacity: 1;
+  bottom: 10px;
+  box-shadow: 0px 0px 5px 2px rgba(225, 254, 164, 2);
+  transition: all 0.32s 0.28s ease-out;
+  background-color: rgba(67, 189, 142, 0.1);
+  filter: blur(5);
+}
+
+.buttonStorage {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  position: relative;
+  top: 50px;
+  color: #43bd8e;
+}
+
+.buttonStorage > button {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 90px;
+  height: 50px;
+  color: #43bd8e;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  outline: none;
+  overflow: hidden;
+  box-shadow: 0px 0px 5px 2px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  text-align: center;
+}
+
+main {
+  width: 281.25px;
+  height: 500.25px;
+  position: relative;
+  top: 12vh;
+  margin: auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+#backBtn {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  font-weight: 900;
+  transition: color 0.3s;
+}
+
+#backBtn:hover {
+  color: #484848;
+}
