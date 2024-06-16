@@ -55,6 +55,14 @@ function updateTimer() {
   }
 
   timeLeft--;
+
+  if (formattedTime === "00:00") {
+    alert("Time to Rest !");
+    resetBtn.style.display = "block";
+    movingCat.style.display = "none";
+    stopCat.style.display = "block";
+    imgAni.style.animationPlayState = "paused";
+  }
 }
 
 const movingCat = document.querySelector(".movingCat");
@@ -151,22 +159,24 @@ weather("hongkong");
 
 // Herman
 
+let firstPage = document.querySelector("#popup");
+let imgBg = document.querySelector(".imageAnimation");
 let choice1 = document.querySelector("#choice1");
-// let val = choose.value;
 choice1.addEventListener("click", function () {
-  console.log(choice1);
+  imgBg.src = "./picture/happy.jpeg";
+  firstPage.style.display = "none";
 });
 
 let choice2 = document.querySelector("#choice2");
-// let val = choose.value;
 choice2.addEventListener("click", function () {
-  console.log(choice2);
+  firstPage.style.display = "none";
+  imgBg.src = "./picture/sad.jpeg";
 });
 
 let choice3 = document.querySelector("#choice3");
-// let val = choose.value;
 choice3.addEventListener("click", function () {
-  console.log(choice3);
+  firstPage.style.display = "none";
+  imgBg.src = "./picture/chill.jpeg";
 });
 
 let audioOn = document.querySelector(".swap-on");
@@ -187,4 +197,11 @@ audioOff.addEventListener("click", function () {
     audio.pause();
     console.log(audiobtn);
   }
+});
+
+//backbtn
+
+const backbtn = document.querySelector("#backBtn");
+backbtn.addEventListener("click", function () {
+  firstPage.style.display = "flex";
 });
